@@ -43,6 +43,11 @@ const Post: React.FC = () => {
           <PostCard key={p.id} title={p.title} body={p.body} user={p.user}/>
         ))}
       </div>
+      <div className="fixed-button-container">
+        <div className="round-button">
+            +
+        </div>
+      </div>
     </>
   );
 };

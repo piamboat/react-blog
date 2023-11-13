@@ -38,11 +38,6 @@ const User: React.FC = () => {
   return (
     <>
       <NavMain />
-      <div className="fixed-button-container">
-        <div className="round-button">
-            +
-        </div>
-      </div>
       <div className="container">
         {user.map((u: UserInterface) => (
           <UserCard
@@ -54,6 +49,11 @@ const User: React.FC = () => {
             company={u.company}
           />
         ))}
+      </div>
+      <div className="fixed-button-container">
+        <div className="round-button">
+            +
+        </div>
       </div>
     </>
   );
