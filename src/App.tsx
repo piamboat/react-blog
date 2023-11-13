@@ -1,9 +1,9 @@
 import { useState } from "react";
-import NavMain from "../components/NavMain";
+import NavMain from "./components/NavMain";
 import { Link, useNavigate } from "react-router-dom";
 import { Box, TextField, Button } from "@mui/material";
 
-const Home: React.FC = () => {
+const App: React.FC = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -94,4 +94,4 @@ const Home: React.FC = () => {
   );
 };
 
-export default Home;
+export default App;

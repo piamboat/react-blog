@@ -5,14 +5,14 @@ import {
   createBrowserRouter,
   RouterProvider
 } from "react-router-dom";
-import Home from "./pages/Home.tsx";
+import App from "./App.tsx";
 import User from "./pages/User.tsx";
 import Post from "./pages/Post.tsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home />,
+    element: <App />,
   },
   {
     path: "/user",
