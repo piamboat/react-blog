@@ -33,6 +33,8 @@ const Home: React.FC = () => {
             // console.log('Message:', data.message);
             // console.log('Result:', data.result);
             localStorage.setItem("authToken", data.result.token);
+            localStorage.setItem("username", data.result.username);
+            localStorage.setItem("userId", data.result.userId);
 
             navigate("/post");
         }

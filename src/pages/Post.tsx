@@ -1,8 +1,8 @@
 import NavMain from "../components/NavMain";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { PostCard as PostCardType } from "../interfaces/post.interface";
 import PostCard from "../components/PostCard";
+import { PostInterface } from "../interfaces/post.interface";
 
 const Post: React.FC = () => {
   const navigate = useNavigate();
@@ -39,8 +39,8 @@ const Post: React.FC = () => {
     <>
       <NavMain />
       <div className="container">
-        {post.map((p: PostCardType) => (
-          <PostCard key={p.id} id={p.id} title={p.title} body={p.body} />
+        {post.map((p: PostInterface) => (
+          <PostCard key={p.id} title={p.title} body={p.body} user={p.user}/>
         ))}
       </div>
     </>

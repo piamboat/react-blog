@@ -33,3 +33,8 @@ nav {
   text-decoration: none;
   color: white;
 }
+
+.card-container {
+  margin: 1rem 0;
+  width: 80%;
+}
