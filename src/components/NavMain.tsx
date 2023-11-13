@@ -1,6 +1,6 @@
 import {Link} from "react-router-dom"
 
-const NavMain = () => {
+const NavMain: React.FC = () => {
     return (
         <nav>
             <div className="logo">SnakeBlog</div>

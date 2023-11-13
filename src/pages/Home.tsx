@@ -1,5 +1,5 @@
 import { useState } from "react";
-import NavMain from "./NavMain";
+import NavMain from "../components/NavMain";
 import { Link, useNavigate } from "react-router-dom";
 import { Box, TextField, Button } from "@mui/material";
 
@@ -32,9 +32,12 @@ const Home: React.FC = () => {
             const data = await response.json();
             // console.log('Message:', data.message);
             // console.log('Result:', data.result);
-            localStorage.setItem('authToken', data.result.token);
+            localStorage.setItem("authToken", data.result.token);
 
             navigate("/post");
+        }
+        else {
+            console.log(`Failed login!`)
         }
     }
     catch (error)

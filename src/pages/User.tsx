@@ -1,6 +1,6 @@
-import NavMain from "./NavMain"
+import NavMain from "../components/NavMain"
 
-const User = () => {
+const User: React.FC = () => {
     
     return (
         <>
