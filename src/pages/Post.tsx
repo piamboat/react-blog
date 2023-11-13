@@ -25,7 +25,7 @@ const Post: React.FC = () => {
           const data = await response.json();
           setPost((prev) => data);
         } else {
-          console.log(`Failed loading posts!`);
+          navigate("/");
         }
       } catch (error) {
         navigate("/");
