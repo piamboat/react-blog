@@ -1,21 +1,22 @@
 import { Card, CardContent, Typography } from "@mui/material";
-import { PostInterface } from "../interfaces/post.interface";
+import { PostCardInterface } from "../interfaces/post.interface";
+import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 
-
-const PostCard: React.FC<PostInterface> = ({ title, body, user }) => {
+const PostCard: React.FC<PostCardInterface> = ({ postObj, handleDeletePost }) => {
   return (
     <Card className="card-container" sx={{ maxWidth: 345 }}>
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          {title}
+          {postObj.title}
+          <DeleteOutlinedIcon className="delete-button" onClick={() => handleDeletePost(postObj.id)}/>
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          {body}
+          {postObj.body}
         </Typography>
       </CardContent>
       <CardContent>
       <Typography sx={{ fontSize: 10 }} color="text.primary" gutterBottom>
-          {`Post by: ${user.username}`}
+          {`Post by: ${postObj.user.username}`}
         </Typography>
       </CardContent>
     </Card>

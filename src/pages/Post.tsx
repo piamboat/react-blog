@@ -85,6 +85,21 @@ const Post: React.FC = () => {
     }
   };
 
+  const handleDeletePost = async (delId: number) => {
+    const response = await fetch(`http://localhost:3000/api/v1/post/${delId}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    if (response.ok) {
+      const updatedPost = post.filter(u => u.id !== delId)
+      setPost(prev => [...updatedPost])
+    }
+  };
+
   return (
     <>
       <NavMain />
@@ -151,7 +166,7 @@ const Post: React.FC = () => {
       />
       <div className="container">
         {post.map((p: PostInterface) => (
-          <PostCard key={p.id} title={p.title} body={p.body} user={p.user} />
+          <PostCard key={p.id} postObj={p} handleDeletePost={handleDeletePost} />
         ))}
       </div>
       <div className="fixed-button-container">
