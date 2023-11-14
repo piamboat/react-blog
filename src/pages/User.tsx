@@ -47,6 +47,7 @@ const User: React.FC = () => {
   };
   const [user, setUser] = useState<UserInterface[]>([]);
   const [successCreateUser, setSuccessCreateUser] = useState(false);
+  const [errDelUser, setErrDelUser] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
   const [createUser, setCreateUser] = useState<CreatingUserInterface>(initUser);
 
@@ -113,6 +114,37 @@ const User: React.FC = () => {
       setCreateUser(initUser);
       const data = await response.json();
       setUser((prev) => [...prev, data ]);
+    }
+  };
+
+  const handleDeleteUser = async (delId: number) => {
+    const postsResponse = await fetch(`http://localhost:3000/api/v1/user/posts/${delId}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    if (postsResponse.ok) {
+      const data = await postsResponse.json();
+      if (data.length > 0) {
+        setErrDelUser((prev) => true);
+        return;
+      }
+    }
+
+    const response = await fetch(`http://localhost:3000/api/v1/user/${delId}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    if (response.ok) {
+      const updatedUser = user.filter(u => u.id !== delId)
+      setUser(prev => [...updatedUser])
     }
   };
 
@@ -399,11 +431,18 @@ const User: React.FC = () => {
         onClose={() => setSuccessCreateUser((prev) => false)}
         message="created user success!"
       />
+      <Snackbar
+        open={errDelUser}
+        autoHideDuration={3000}
+        onClose={() => setErrDelUser((prev) => false)}
+        message="Unable to del cuz, this user has posts!"
+      />
       <div className="container">
         {user.map((u: UserInterface) => (
           <UserCard
             key={u.id}
             userObj={u}
+            handleDeleteUser={handleDeleteUser}
           />
         ))}
       </div>

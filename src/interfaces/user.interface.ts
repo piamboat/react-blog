@@ -1,5 +1,5 @@
 export interface UserInterface {
-  id?: number;
+  id: number;
   name: string;
   username?: string;
   email: string;
@@ -47,4 +47,5 @@ export interface CreatingUserInterface {
 
 export interface UserCardInterface {
   userObj: UserInterface;
+  handleDeleteUser: (delId: number) => void;
 }
