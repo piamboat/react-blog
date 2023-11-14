@@ -45,7 +45,7 @@ const User: React.FC = () => {
       bs: "",
     },
   };
-  const [user, setUser] = useState([]);
+  const [user, setUser] = useState<UserInterface[]>([]);
   const [successCreateUser, setSuccessCreateUser] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
   const [createUser, setCreateUser] = useState<CreatingUserInterface>(initUser);
@@ -112,8 +112,7 @@ const User: React.FC = () => {
       setModalOpen((prev) => false);
       setCreateUser(initUser);
       const data = await response.json();
-      console.log(`user: ${user}`)
-      console.log(`data: ${data}`)
+      setUser((prev) => [...prev, data ]);
     }
   };
 
