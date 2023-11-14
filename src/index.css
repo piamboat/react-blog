@@ -62,3 +62,8 @@ nav {
 .round-button:hover {
   background-color: #27b527;
 }
+
+.delete-button {
+  margin: -0.2rem 0;
+  cursor: pointer;
+}

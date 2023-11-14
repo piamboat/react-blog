@@ -1,5 +1,6 @@
 import { Card, CardContent, Typography } from "@mui/material";
 import { UserCardInterface } from "../interfaces/user.interface";
+import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 
 const UserCard: React.FC<UserCardInterface> = ({ userObj }) => {
   return (
@@ -7,6 +8,7 @@ const UserCard: React.FC<UserCardInterface> = ({ userObj }) => {
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
           {`${userObj.name}`}
+          <DeleteOutlinedIcon className="delete-button"/>
         </Typography>
         <Typography variant="body2" color="text.secondary">
           {`Username: ${userObj.username}`}
