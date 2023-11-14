@@ -403,11 +403,7 @@ const User: React.FC = () => {
         {user.map((u: UserInterface) => (
           <UserCard
             key={u.id}
-            name={u.name}
-            email={u.email}
-            phone={u.phone}
-            address={u.address}
-            company={u.company}
+            userObj={u}
           />
         ))}
       </div>

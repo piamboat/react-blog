@@ -1,24 +1,30 @@
 import { Card, CardContent, Typography } from "@mui/material";
-import { UserInterface } from "../interfaces/user.interface";
+import { UserCardInterface } from "../interfaces/user.interface";
 
-const UserCard: React.FC<UserInterface> = ({ name, email, phone, address, company }) => {
+const UserCard: React.FC<UserCardInterface> = ({ userObj }) => {
   return (
     <Card className="card-container" sx={{ maxWidth: 345 }}>
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          {`${name}`}
+          {`${userObj.name}`}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          {`Email: ${email}`}
+          {`Username: ${userObj.username}`}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          {`Phone: ${phone}`}
+          {`Email: ${userObj.email}`}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          {`Address: ${address?.street} ${address?.suite} ${address?.city} ${address?.zipcode}`}
+          {`Phone: ${userObj.phone}`}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          {`Company: ${company?.name} ,catchPhrase: ${company?.catchPhrase}, bs: ${company?.bs}`}
+          {`Website: ${userObj.website}`}
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          {`Address: ${userObj.address?.street} ${userObj.address?.suite} ${userObj.address?.city} ${userObj.address?.zipcode} ${userObj.address?.geo.lat} ${userObj.address?.geo.lng}`}
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          {`Company: ${userObj.company?.name} ,catchPhrase: ${userObj.company?.catchPhrase}, bs: ${userObj.company?.bs}`}
         </Typography>
       </CardContent>
     </Card>
