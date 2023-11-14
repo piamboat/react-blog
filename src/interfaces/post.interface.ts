@@ -6,3 +6,8 @@ export interface PostInterface {
     body: string;
     user: UserInterface;
 }
+
+export interface CreatingPostInterface {
+    title: string;
+    body: string;
+}
