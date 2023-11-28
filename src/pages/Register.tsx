@@ -57,7 +57,6 @@ const Register = () => {
 
             if (response.ok) {
                 setSuccessRegister((prev) => true);
-                navigate("/");
             }
             else {
                 console.log(`Failed Register!`)
@@ -76,7 +75,10 @@ const Register = () => {
                     open={successRegister}
                     anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
                     autoHideDuration={3000}
-                    onClose={() => setSuccessRegister((prev) => false)}
+                    onClose={() => {
+                        setSuccessRegister((prev) => false);
+                        navigate("/");
+                    }}
                     message="created user success!"
                 />
                 <h2>Please fill in the following form</h2>
