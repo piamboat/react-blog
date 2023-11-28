@@ -8,6 +8,7 @@ import {
 import App from "./App.tsx";
 import User from "./pages/User.tsx";
 import Post from "./pages/Post.tsx";
+import Register from "./pages/Register.tsx";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
   {
     path: "/post",
     element: <Post />,
+  },
+  {
+    path: "/register",
+    element: <Register />,
   },
 ]);
 
