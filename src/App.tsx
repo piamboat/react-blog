@@ -76,6 +76,7 @@ const App: React.FC = () => {
             <TextField
               variant="outlined"
               id="password"
+              type="password"
               label="password"
               value={password}
               onChange={handlePasswordChange}
